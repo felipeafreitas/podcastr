@@ -4,7 +4,17 @@ import { format, parseISO } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
 
-type Episode = {};
+type Episode = {
+  id: string;
+  title: string;
+  description: string;
+  url: string;
+  thumbnail: string;
+  duration: number;
+  durationString: string;
+  members: string;
+  publishedAt: string;
+};
 
 type HomeProps = {
   episodes: Episode[];
@@ -41,6 +51,8 @@ export const getStaticProps: GetStaticProps = async () => {
       _order: "desc",
     },
   });
+
+  console.log("test");
 
   const episodes = data.map((episode) => {
     return {
