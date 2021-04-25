@@ -63,7 +63,7 @@ export default Episode;
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: "blocking",
+    fallback: "blocking", //melhor para SEO: as infos são carregadas no servidos NextJS. Existe também as opções true e false
   };
 };
 
