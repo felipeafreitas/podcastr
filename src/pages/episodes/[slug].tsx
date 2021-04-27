@@ -10,6 +10,7 @@ import Link from "next/link";
 import styles from "./episode.module.scss";
 import Image from "next/image";
 import { usePlayer } from "../../contexts/PlayerContext";
+import Head from "next/head";
 
 type Episode = {
   id: string;
@@ -34,6 +35,9 @@ function Episode({ episode }: EpisodeProps) {
 
   return (
     <div className={styles.episode}>
+      <Head>
+        <title>{episode.title} | Podcaster</title>
+      </Head>
       {episode.title}
       <div className={styles.thumbnailContainer}>
         <Link href="/">
@@ -42,12 +46,7 @@ function Episode({ episode }: EpisodeProps) {
           </button>
         </Link>
         <Image width={700} height={160} src={episode.thumbnail} />
-        <button
-          type="button"
-          onClick={() => 
-            play(episode)
-          }
-        >
+        <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar episódio" />
         </button>
       </div>
