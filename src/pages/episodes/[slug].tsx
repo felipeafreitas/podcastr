@@ -45,7 +45,12 @@ function Episode({ episode }: EpisodeProps) {
             <img src="/arrow-left.svg" alt="Voltar" />
           </button>
         </Link>
-        <Image width={700} height={160} src={episode.thumbnail} />
+        <Image
+          width={700}
+          height={160}
+          src={episode.thumbnail}
+          objectFit="cover"
+        />
         <button type="button" onClick={() => play(episode)}>
           <img src="/play.svg" alt="Tocar episódio" />
         </button>
