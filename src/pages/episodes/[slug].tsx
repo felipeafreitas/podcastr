@@ -9,6 +9,7 @@ import Link from "next/link";
 
 import styles from "./episode.module.scss";
 import Image from "next/image";
+import { usePlayer } from "../../contexts/PlayerContext";
 
 type Episode = {
   id: string;
@@ -28,6 +29,9 @@ type EpisodeProps = {
 
 function Episode({ episode }: EpisodeProps) {
   // const router = useRouter();
+
+  const { play } = usePlayer();
+
   return (
     <div className={styles.episode}>
       {episode.title}
@@ -38,7 +42,12 @@ function Episode({ episode }: EpisodeProps) {
           </button>
         </Link>
         <Image width={700} height={160} src={episode.thumbnail} />
-        <button type="button">
+        <button
+          type="button"
+          onClick={() => 
+            play(episode)
+          }
+        >
           <img src="/play.svg" alt="Tocar episódio" />
         </button>
       </div>
